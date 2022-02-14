@@ -1,6 +1,7 @@
 const assertEqual = require('../assertEqual');
 const head = require('../head');
 const tail = require('../tail');
+const eqArrays = require('../eqArrays');
 
 console.log("Assert Equal Test")
 assertEqual("Lighthouse Labs", "Bootcamp");
@@ -18,3 +19,9 @@ const result = tail(["Hello", "Lighthouse", "Labs"]);
 assertEqual(result.length, 2); // ensure we get back two elements
 assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
 assertEqual(result[1], "Labs"); // ensure second element is "Labs"
+
+console.log("Eq Arrays Test")
+assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
+assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
+assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
